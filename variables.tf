@@ -14,8 +14,8 @@ variable "gcp_region" {
 }
 
 variable "gke_cluster_name" {
-type          = string
-description   = "GCP cluster name"
+  type        = string
+  description = "GCP cluster name"
 }
 
 variable "gke_zones" {
