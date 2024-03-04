@@ -15,23 +15,23 @@ module "gke" {
   ip_range_pods              = "europe-west1-01-gke-01-pods"
   node_pools = [
     {
-      name                      = var.gke_default_nodepools_name
-      machine_type              = "e2-medium"
-      min_count                 = 1
-      max_count                 = 3
-      local_ssd_count           = 0
-      spot                      = false
-      disk_size_gb              = 100
-      disk_type                 = "pd-standard"
-      image_type                = "COS_CONTAINERD"
-      enable_gcfs               = false
-      enable_gvnic              = false
-      logging_variant           = "DEFAULT"
-      auto_repair               = true
-      auto_upgrade              = true
-      service_account           = var.gke_service_account_name
-      preemptible               = true # Only in test not in production
-      initial_node_count        = 1
+      name               = var.gke_default_nodepools_name
+      machine_type       = "e2-medium"
+      min_count          = 1
+      max_count          = 3
+      local_ssd_count    = 0
+      spot               = false
+      disk_size_gb       = 100
+      disk_type          = "pd-standard"
+      image_type         = "COS_CONTAINERD"
+      enable_gcfs        = false
+      enable_gvnic       = false
+      logging_variant    = "DEFAULT"
+      auto_repair        = true
+      auto_upgrade       = true
+      service_account    = var.gke_service_account_name
+      preemptible        = true # Only in test not in production
+      initial_node_count = 1
     },
   ]
 
