@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("deploying-with-terraform-9bfd39623e14.json")
-  project = "Deploying-with-terraform"
-  region = "eu-west10"
+  credentials = file(var.gcp_credentials)
+  project = var.gcp_project_id
+  region = var.gcp_region
 }
