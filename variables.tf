@@ -1,4 +1,8 @@
-variable "gcp_credentials" {}
+variable "gcp_credentials" {
+  type        = string
+  description = "Location of service account for GCP"
+  sensitive   = true
+}
 
 variable "gcp_project_id" {
   type        = string
