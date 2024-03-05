@@ -72,7 +72,7 @@ jobs:
       run: touch credential.json
 
     - name: Copy the secret into a file to provide it to terraform.
-      run: echo ${{ secrets.GCP_SA_KEY }} > credentials.json 2>/dev/null
+      run: echo "${{ secrets.GCP_SA_KEY }}" > credentials.json 2>/dev/null
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
