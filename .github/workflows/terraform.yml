@@ -31,7 +31,7 @@ jobs:
         run: touch credential.json
 
       - name: Format Json into credentials file to be used in terraform
-        run: printf '{"${{ toJson(secrets.GCP_SA_KEY) }}"}' | jq '.' > credentials.json
+        run: printf '%s\n' "${{ toJson(secrets.GCP_SA_KEY) }}"  > credentials.json
 
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup Terraform
