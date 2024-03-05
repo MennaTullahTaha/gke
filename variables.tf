@@ -1,9 +1,3 @@
-variable "gcp_credentials" {
-  type        = string
-  description = "GCP credentials"
-  sensitive   = true
-}
-
 variable "gcp_project_id" {
   type        = string
   description = "GCP project id."
