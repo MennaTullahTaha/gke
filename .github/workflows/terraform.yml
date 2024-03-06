@@ -24,14 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: run google auth
-        run: gcloud auth application-default login
-
-      - name: create JSON file
-        run: touch credential.json
-
-      - name: Copy the secret into a file to provide it to terraform.
-        run: echo "${{ secrets.GCP_SA_KEY }}" > credentials.json
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: deploying-with-terraform
 
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup Terraform
@@ -49,7 +46,7 @@ jobs:
 
       # Generates an execution plan for Terraform
       - name: Terraform Plan
-        run: terraform-bin plan -var="gcp_credentials=$(cat credentials.json | jq '.')"
+        run: terraform-bin plan
 
         # On push to "main", build or change infrastructure according to Terraform configuration files
         # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
