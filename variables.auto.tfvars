@@ -1,4 +1,3 @@
-gcp_credentials            = "${{gcp.GCP_SA_KEY}}"
 gcp_project_id             = "deploying-with-terraform"
 gcp_region                 = "europe_west3"
 gke_cluster_name           = "template-to-cluster"
