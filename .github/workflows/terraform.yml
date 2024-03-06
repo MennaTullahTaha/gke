@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: run google auth
+        run: gcloud auth application-default login
+
       - name: create JSON file
         run: touch credential.json
 
